@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "UYnwtc05214u2/2PJkJFlNH0XfwlR54NQqZNzrS8JxJiZlekQeAgaxZ+HzEO+Fi46bs1Hcarg1JR7lUEkQ3q+Q==",
+  "success": true,
+  "projectFilePath": "/Users/egorgusev/Programming/hw_programming/Test/Example/Example.fsproj",
+  "expectedPackageFiles": [
+    "/Users/egorgusev/.nuget/packages/fsharp.core/4.5.2/fsharp.core.4.5.2.nupkg.sha512"
+  ],
+  "logs": []
+}
