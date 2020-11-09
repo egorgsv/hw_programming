@@ -1,6 +1,0 @@
-/Users/egorgusev/Programming/hw_programming/Test/Example/bin/Debug/netcoreapp3.1/Example.deps.json
-/Users/egorgusev/Programming/hw_programming/Test/Example/bin/Debug/netcoreapp3.1/Example.dll
-/Users/egorgusev/Programming/hw_programming/Test/Example/bin/Debug/netcoreapp3.1/Example.pdb
-/Users/egorgusev/Programming/hw_programming/Test/Example/obj/Debug/netcoreapp3.1/Example.fsprojAssemblyReference.cache
-/Users/egorgusev/Programming/hw_programming/Test/Example/obj/Debug/netcoreapp3.1/Example.dll
-/Users/egorgusev/Programming/hw_programming/Test/Example/obj/Debug/netcoreapp3.1/Example.pdb
