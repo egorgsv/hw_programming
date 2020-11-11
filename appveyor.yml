@@ -4,9 +4,9 @@ before_build:
     - nuget restore HW1/ResizeArray/ResizeArray.sln
     - nuget restore HW1/MatrixMult/MatrixMult.sln
 
-build: 
-    project: HW1/ResizeArray/ResizeArray.sln
-    project: HW1/MatrixMult/MatrixMult.sln
+build_script:
+    - dotnet build HW1/ResizeArray/ResizeArray.sln
+	- dotnet build HW1/MatrixMult/MatrixMult.sln
 
 test_script:
     - dotnet test HW1/ResizeArray/ResizeArray.sln
