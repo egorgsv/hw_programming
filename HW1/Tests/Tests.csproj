@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MatrixMult\MatrixMult.csproj" />
     <ProjectReference Include="..\ResizeArray\ResizeArray.csproj" />
   </ItemGroup>
 </Project>

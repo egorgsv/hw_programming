@@ -1,13 +1,10 @@
 image: Visual Studio 2019
 
 before_build: 
-    - nuget restore HW1/ResizeArray/ResizeArray.sln
-    - nuget restore HW1/MatrixMult/MatrixMult.sln
+    - nuget restore HW1/HW1.sln
 
-build_script:
-    - dotnet build HW1/ResizeArray/ResizeArray.sln
-	- dotnet build HW1/MatrixMult/MatrixMult.sln
+build:
+    project: HW1/HW1.sln
 
 test_script:
-    - dotnet test HW1/ResizeArray/ResizeArray.sln
-    - dotnet test HW1/MatrixMult/MatrixMult.sln
+    - dotnet test HW1/HW1.sln
