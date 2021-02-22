@@ -5,7 +5,7 @@ namespace MatrixMult
 {
     public class Matrix
     {
-        private int[][] array;
+        public int[][] array;
         public int n { get; private set; }
         public int m { get; private set; }
 
@@ -93,5 +93,7 @@ namespace MatrixMult
         }
 
         public int[][] GetContent() => (int[][])this.array.Clone();
+
+        public override int GetHashCode() => array.GetHashCode();
     }
 }

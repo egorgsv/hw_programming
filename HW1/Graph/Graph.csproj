@@ -6,6 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="YC.QuickGraph" Version="3.7.4" />
+    <ProjectReference Include="..\MatrixMult\MatrixMult.csproj" />
   </ItemGroup>
 </Project>

@@ -15,5 +15,6 @@
   <ItemGroup>
     <ProjectReference Include="..\MatrixMult\MatrixMult.csproj" />
     <ProjectReference Include="..\ResizeArray\ResizeArray.csproj" />
+    <ProjectReference Include="..\Graph\Graph.csproj" />
   </ItemGroup>
 </Project>
