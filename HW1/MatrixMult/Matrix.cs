@@ -36,27 +36,27 @@ namespace MatrixMult
             if (matrix1.m != matrix2.n)
                 throw new ArgumentException("Colum count of first matrix should equal to rows count of the second one.");
 
-            int[][] ResArray = new int[n][];
+            int[][] resArray = new int[n][];
 
             for (int i = 0; i < n; i++)
             {
-                ResArray[i] = new int[m];
+                resArray[i] = new int[m];
                 for (int j = 0; j < m; j++)
                 {
-                    ResArray[i][j] = 0;
+                    resArray[i][j] = 0;
                     for (int o = 0; o < matrix1.m; o++)
                     {
-                        ResArray[i][j] += matrix1.array[i][o] * matrix2.array[o][j];
+                        resArray[i][j] += matrix1.array[i][o] * matrix2.array[o][j];
                     }
                 }
             }
 
-            return new Matrix(ResArray);
+            return new Matrix(resArray);
         }
 
         public override string ToString()
         {
-            StringBuilder builder = new StringBuilder();
+            var builder = new StringBuilder();
             foreach (var line in this.array)
             {
                 foreach (var i in line)
@@ -73,7 +73,7 @@ namespace MatrixMult
         {
             if (obj == null)
                 return false;
-            Matrix matrix = obj as Matrix;
+            var matrix = obj as Matrix;
             if (matrix.m != this.m || matrix.n != this.n)
             {
                 return false;

@@ -85,7 +85,7 @@ namespace MatrixMultTests
                     delegate {
                         Matrix m = this.matrix1 * this.matrix0;
                     }
-                    );
+                );
         }
 
     }

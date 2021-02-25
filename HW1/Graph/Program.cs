@@ -22,8 +22,7 @@ namespace Graph
             var path = "";
             //path = args[0];
             path = "/Users/egorgusev/Programming/hw_programming/HW1/Tests/test_data/Graph.txt";
-            Matrix adjacencyMatrix = MatrixReader.Reader(path);
-            Console.WriteLine(adjacencyMatrix.ToString());
+            var adjacencyMatrix = MatrixReader.Reader(path);
 
             (BidirectionalMatrixGraph<Edge<int>> graph,
                     Func<Edge<int>, double> edgeWeights, int vertexCount) = new Graph(adjacencyMatrix).GetResult();
@@ -49,7 +48,6 @@ namespace Graph
             // render
             String GetDotCode(BidirectionalMatrixGraph<Edge<int>> shortestTree, BidirectionalMatrixGraph<Edge<int>> graph)
             {
-                String dotCode = "";
                 StringBuilder builder = new StringBuilder();
                 builder.AppendLine("digraph G {");
                 foreach (var vertex in graph.Vertices)
@@ -66,8 +64,7 @@ namespace Graph
                         builder.AppendLine(" [];");
                 }
                 builder.AppendLine("}");
-                dotCode = builder.ToString();
-                return dotCode;
+                return builder.ToString();
             }
 
             void GeneratePDF(String output, String dot)
@@ -88,7 +85,6 @@ namespace Graph
 
             string outputDot = GetDotCode(graphShort, graph);
             GeneratePDF("graphVis.pdf", outputDot);
-            //string output = outputDot.Generate(new FileDotEngine(), "graph");
 
         }
     }

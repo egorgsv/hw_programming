@@ -9,7 +9,6 @@ namespace Graph
     public class Graph
     {
         public BidirectionalMatrixGraph<Edge<int>> graph;
-        List<Edge<int>> edges;
         public Func<Edge<int>, double> edgeWeights;
         int[][] adjacencyMatrix;
         public int vertexCount;
@@ -17,10 +16,9 @@ namespace Graph
         public Graph(Matrix matrix)
         {
             if (matrix.m != matrix.n)
-                throw new ArgumentException("Не квадратная матрица");
+                throw new ArgumentException("This is not a square matrix!");
             adjacencyMatrix = matrix.GetContent();
             graph = null;
-            edges = null;
             edgeWeights = null;
             vertexCount = matrix.n;
         }
@@ -47,26 +45,5 @@ namespace Graph
             this.graph = graph;
             return GetResult();
         }
-
-        //public BidirectionalMatrixGraph<Edge<int>> FindShortestPaths(int root)
-        //{
-        //    TryFunc<int, IEnumerable<Edge<int>>> tryGetPaths = graph.ShortestPathsDijkstra(edgeWeights, root);
-            
-        //    var graphShort = new BidirectionalMatrixGraph<Edge<int>>(vertexCount);
-            
-        //    // query path for given vertices
-        //    foreach (var target in graph.Vertices)
-        //    {
-        //        IEnumerable<Edge<int>> pathShort;
-        //        if (tryGetPaths(target, out pathShort))
-        //            foreach (var edge in pathShort)
-        //                if (!graphShort.ContainsEdge(edge))
-        //                {
-        //                    graphShort.AddEdge(edge);
-        //                }
-        //    }
-
-        //    return graphShort;
-        //}
     }
 }

@@ -28,7 +28,7 @@ namespace ResizeArray
         private void checkIndex(int i)
         {
             if (i < 0 || i >= count)
-                throw new IndexOutOfRangeException("Индекс должен быть от 0 до " + count + ". Передан индекс " + i);
+                throw new IndexOutOfRangeException("Index should be in [0;" + count + "]. " + i + " was given.");
         }
 
         public T this[int i]

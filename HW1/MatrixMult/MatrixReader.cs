@@ -5,12 +5,12 @@ namespace MatrixMult
 {
     public class MatrixReader
     {
-        public static Matrix Reader(string _path)
+        public static Matrix Reader(string path)
         {
             int[][] array;
             int M = 0;
             int N = 0;
-            using (StreamReader sr = File.OpenText(_path))
+            using (StreamReader sr = File.OpenText(path))
             {
                 string line;
                 int i = 0;
@@ -24,7 +24,7 @@ namespace MatrixMult
                 M = i;
             }
 
-            using (StreamReader sr = File.OpenText(_path))
+            using (StreamReader sr = File.OpenText(path))
             {
                 array = new int[M][];
                 string line;
