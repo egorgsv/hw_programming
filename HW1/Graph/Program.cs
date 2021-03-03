@@ -20,8 +20,7 @@ namespace Graph
         static void Main(string[] args)
         {
             var path = "";
-            //path = args[0];
-            path = "/Users/egorgusev/Programming/hw_programming/HW1/Tests/test_data/Graph.txt";
+            path = args[0];
             var adjacencyMatrix = MatrixReader.Reader(path);
 
             (BidirectionalMatrixGraph<Edge<int>> graph,

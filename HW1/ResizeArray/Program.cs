@@ -5,11 +5,11 @@ namespace ResizeArray
     public class ResizeArray<T>{
         private T[] array;
         private int count;
-        static int default_count = 10;
+        static int defaultСount = 10;
 
         public ResizeArray()
         {
-            array = new T[ResizeArray<T>.default_count];
+            array = new T[ResizeArray<T>.defaultСount];
             count = 0;
         }
 
