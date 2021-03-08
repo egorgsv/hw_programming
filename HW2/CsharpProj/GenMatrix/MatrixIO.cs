@@ -1,10 +1,28 @@
 ﻿﻿using System;
 using System.IO;
+ using System.Text;
 
-namespace CsharpProj
+ namespace CsharpProj
 {
-    public class MatrixReader<T> where T : ISerializable, new()
+    public class MatrixIO<T> where T : ISerializable, new()
     {
+        
+        public static void WriteMatrix(T[][] matrix, String output)
+        {
+            StringBuilder builder = new StringBuilder();
+            foreach (var line in matrix)
+            {
+                foreach (var i in line)
+                {
+                    builder.Append(i.ToWord());
+                    builder.Append(' ');
+                }
+
+                builder.AppendLine();
+            }
+            File.WriteAllText(output, builder.ToString());
+        }
+        
         public static T[][] Reader(string path)
         {
             T[][] array;

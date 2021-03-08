@@ -1,7 +1,7 @@
 ﻿﻿using System;
 namespace CsharpProj
 {
-    public interface IOrder<T>
+    public interface ISemigroupPO<T>
     {
         public T Multiply(T t1, T t2);
 

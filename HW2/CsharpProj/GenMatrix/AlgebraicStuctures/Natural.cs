@@ -28,7 +28,7 @@ namespace Matrix
         }
     }
     
-    public class NaturalSemigroup : IOrder<Natural>
+    public class NaturalSemigroup : ISemigroupPO<Natural>
     {
         public Natural Multiply(Natural t1, Natural t2)
         {

@@ -3,7 +3,7 @@ namespace CsharpProj
 {
     public class FloydWarshall<T>
     {
-        public static Matrix<T> Execute(Matrix<T> mtrx, IOrder<T> semigroup)
+        public static Matrix<T> Execute(Matrix<T> mtrx, ISemigroupPO<T> semigroup)
         {
             Matrix<T> matrix = new Matrix<T>(mtrx.Copy());
             if (matrix.n != matrix.m)
