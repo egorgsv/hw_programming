@@ -19,9 +19,8 @@ namespace Graph
     {
         static void Main(string[] args)
         {
-            var path = "";
-            //path = args[0];
-            path = "/Users/egorgusev/Programming/hw_programming/HW1/Tests/test_data/Graph.txt";
+            String path = args[0],
+                output = args[1];
             var adjacencyMatrix = MatrixReader.Reader(path);
 
             (BidirectionalMatrixGraph<Edge<int>> graph,
@@ -84,7 +83,7 @@ namespace Graph
             }
 
             string outputDot = GetDotCode(graphShort, graph);
-            GeneratePDF("graphVis.pdf", outputDot);
+            GeneratePDF(output, outputDot);
 
         }
     }

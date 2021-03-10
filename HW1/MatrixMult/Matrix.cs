@@ -12,21 +12,17 @@ namespace MatrixMult
         public Matrix(int[][] array)
         {
             int n = array.Length;
-            isZero(n);
+            if (n == 0)
+                throw new ArgumentException("Matrix should contain at least one cell.");
             int m = array[0].Length;
-            isZero(m);
+            if (m == 0)
+                throw new ArgumentException("Matrix should contain at least one cell.");
             foreach (int[] row in array)
                 if (row.Length != m)
                     throw new ArgumentException("Rows' lengths should be equal.");
             this.n = n;
             this.m = m;
             this.array = array;
-        }
-
-        private void isZero(int norm)
-        {
-            if (norm == 0)
-                throw new ArgumentException("Matrix should contain at least one cell.");
         }
 
         public static Matrix operator *(Matrix matrix1, Matrix matrix2)

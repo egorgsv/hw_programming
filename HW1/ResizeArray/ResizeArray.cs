@@ -2,14 +2,15 @@
 
 namespace ResizeArray
 {
-    public class ResizeArray<T>{
+    public class ResizeArray<T>
+    {
         private T[] array;
         private int count;
-        static int default_count = 10;
+        static int defaultСount = 10;
 
         public ResizeArray()
         {
-            array = new T[ResizeArray<T>.default_count];
+            array = new T[ResizeArray<T>.defaultСount];
             count = 0;
         }
 
@@ -20,7 +21,7 @@ namespace ResizeArray
             {
                 T[] newArray = new T[array.Length * 2];
                 array.CopyTo(newArray, 0);
-                array= newArray;
+                array = newArray;
             }
             array[count - 1] = tail;
         }
@@ -46,10 +47,5 @@ namespace ResizeArray
                 array[i] = value;
             }
         }
-    }
-
-    class Program
-    {
-        static void Main(string[] args){}
     }
 }
