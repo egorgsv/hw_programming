@@ -13,9 +13,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\APSP\APSP.csproj" />
       <ProjectReference Include="..\GenMatrix\GenMatrix.csproj" />
-      <ProjectReference Include="..\TransitiveClosure\TransitiveClosure.csproj" />
     </ItemGroup>
 
 </Project>
