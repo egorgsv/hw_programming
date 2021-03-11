@@ -1,7 +1,6 @@
 ﻿using System;
-using CsharpProj;
 
-namespace TransitiveClosure
+namespace Matrix
 {
     public class Boolean : ISerializable
     {

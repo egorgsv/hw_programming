@@ -2,8 +2,8 @@
 using System.IO;
  using System.Text;
 
- namespace CsharpProj
-{
+ namespace Matrix 
+ {
     public class MatrixIO<T> where T : ISerializable, new()
     {
         

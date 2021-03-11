@@ -1,7 +1,8 @@
-﻿﻿using System;
-namespace CsharpProj
-{
-    public class Matrix<T>
+﻿using System;
+
+namespace Matrix
+ {
+     public class Matrix<T>
     {
         public T[][] array;
         public int n { get; private set; }

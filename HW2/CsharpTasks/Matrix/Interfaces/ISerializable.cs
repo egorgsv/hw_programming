@@ -1,5 +1,5 @@
 ﻿﻿using System;
-namespace CsharpProj
+namespace Matrix
 {
     public interface ISerializable
     {

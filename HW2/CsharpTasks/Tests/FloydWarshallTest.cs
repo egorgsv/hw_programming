@@ -1,9 +1,7 @@
 using System;
-using CsharpProj;
 using Matrix;
 using NUnit.Framework;
-using TransitiveClosure;
-using Boolean = TransitiveClosure.Boolean;
+using Boolean = Matrix.Boolean;
 
 namespace FloydWarshallTest
 {

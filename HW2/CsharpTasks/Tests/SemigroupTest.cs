@@ -1,5 +1,5 @@
+using Matrix;
 using NUnit.Framework;
-using TransitiveClosure;
 
 namespace Tests
 {

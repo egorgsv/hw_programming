@@ -1,5 +1,5 @@
 ﻿﻿using System;
-namespace CsharpProj
+namespace Matrix
 {
     public class FloydWarshall<T>
     {

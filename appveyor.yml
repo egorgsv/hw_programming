@@ -1,10 +1,10 @@
 image: Visual Studio 2019
 
 before_build:
-    - nuget restore HW2/CsharpProj/CsharpProj.sln
+    - nuget restore HW2/CsharpTasks/CsharpTasks.sln
 
 build:
-    project: HW2/CsharpProj/CsharpProj.sln
+    project: HW2/CsharpTasks/CsharpTasks.sln
 
 test_script:
-    - dotnet test HW2/CsharpProj/CsharpProj.sln
+    - dotnet test HW2/CsharpTasks/CsharpTasks.sln

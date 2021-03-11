@@ -2,7 +2,8 @@
 using System.IO;
 using System.Text;
 using System.Diagnostics;
-using CsharpProj;
+using Matrix;
+using Boolean = Matrix.Boolean;
 
 namespace TransitiveClosure
 {
