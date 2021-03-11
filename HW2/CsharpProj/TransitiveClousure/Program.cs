@@ -10,8 +10,8 @@ namespace TransitiveClosure
     {
         static void Main(string[] args)
         {
-            String path = Console.ReadLine(),
-                output = Console.ReadLine();
+            String path = args[0],
+                output = args[1];
             Boolean[][] array = MatrixIO<Boolean>.Reader(path);
 
             try

@@ -11,8 +11,8 @@ namespace APSP
     {
         static void Main(string[] args)
         {
-            String path = Console.ReadLine(),
-                output = Console.ReadLine();
+            String path = args[0],
+                output = args[1];
             Natural[][] array = MatrixIO<Natural>.Reader(path);
 
             try

@@ -7,12 +7,9 @@ namespace Matrix
     {
         static void Main(string[] args)
         {
-            String path1 = "/Users/egorgusev/Programming/hw_programming/HW2/CsharpProj/Tests/test_data/M1.txt",
-                path2 = "/Users/egorgusev/Programming/hw_programming/HW2/CsharpProj/Tests/test_data/M2.txt",
-                output = "/Users/egorgusev/Programming/hw_programming/HW2/CsharpProj/Tests/test_data/Result.txt";
-            // String path1 = Console.ReadLine(),
-            //     path2 = Console.ReadLine(),
-            //     output = Console.ReadLine();
+            String path1 = args[0],
+                path2 = args[1],
+                output = args[2];
             Natural[][] array1 = MatrixIO<Natural>.Reader(path1);
             Natural[][] array2 = MatrixIO<Natural>.Reader(path2);
             try
