@@ -1,10 +1,10 @@
 image: Visual Studio 2019
 
-before_build: 
-    - nuget restore HW1/HW1.sln
+before_build:
+    - nuget restore HW2/CsharpProj/CsharpProj.sln
 
 build:
-    project: HW1/HW1.sln
+    project: HW2/CsharpProj/CsharpProj.sln
 
 test_script:
-    - dotnet test HW1/HW1.sln
+    - dotnet test HW2/CsharpProj/CsharpProj.sln
