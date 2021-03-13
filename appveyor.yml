@@ -3,17 +3,13 @@ image: Visual Studio 2019
 environment:
     matrix:
       - solution_name: HW2/CsharpTasks/CsharpTasks.sln
-      - solution_name: HW2/FsharpTasks/FsharpTasks.sln
-      
+
 before_build:
     - nuget restore HW2/CsharpTasks/CsharpTasks.sln
-    - nuget restore HW2/FsharpTasks/FsharpTasks.sln
-  
+
 build_script:
   - msbuild HW2/CsharpTasks/CsharpTasks.sln
-  - msbuild HW2/FsharpTasks/FsharpTasks.sln
-  
+
 
 test_script:
     - dotnet test HW2/CsharpTasks/CsharpTasks.sln
-    - dotnet test HW2/FsharpTasks/FsharpTasks.sln
