@@ -1,28 +1,32 @@
 using Matrix;
+using Matrix.AlgebraicStructures;
 using NUnit.Framework;
 
 namespace Tests
 {
     [TestFixture]
-    class SemigroupTest {
-
+    internal class SemigroupTest
+    {
         private BooleanSemigroup sg;
         private Boolean t, f;
 
-        public SemigroupTest() {
+        public SemigroupTest()
+        {
             sg = new BooleanSemigroup();
             f = new Boolean(false);
             t = new Boolean(true);
         }
 
         [Test]
-        public void TestMultiplication() {
-            Assert.AreEqual(sg.Multiply(this.t, this.f).value, false);
-            Assert.AreEqual(sg.Multiply(this.t, this.t).value, true);
+        public void TestMultiplication()
+        {
+            Assert.AreEqual(sg.Multiply(this.t, this.f).Value, false);
+            Assert.AreEqual(sg.Multiply(this.t, this.t).Value, true);
         }
 
         [Test]
-        public void TestLessOrEqual() {
+        public void TestLessOrEqual()
+        {
             Assert.IsTrue(this.sg.LessOrEqual(this.t, this.f));
             Assert.IsTrue(this.sg.LessOrEqual(this.t, this.t));
             Assert.IsTrue(this.sg.LessOrEqual(this.f, this.f));

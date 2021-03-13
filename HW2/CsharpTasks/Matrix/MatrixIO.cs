@@ -1,15 +1,15 @@
-﻿﻿using System;
+﻿using System;
 using System.IO;
- using System.Text;
+using System.Text;
+using Matrix.Interfaces;
 
- namespace Matrix 
- {
+namespace Matrix
+{
     public class MatrixIO<T> where T : ISerializable, new()
     {
-        
         public static void WriteMatrix(T[][] matrix, String output)
         {
-            StringBuilder builder = new StringBuilder();
+            var builder = new StringBuilder();
             foreach (var line in matrix)
             {
                 foreach (var i in line)
@@ -20,49 +20,50 @@ using System.IO;
 
                 builder.AppendLine();
             }
+
             File.WriteAllText(output, builder.ToString());
         }
-        
+
         public static T[][] Reader(string path)
         {
             T[][] array;
-            int M = 0;
-            int N = 0;
-            using (StreamReader sr = File.OpenText(path))
+            int rowCount;
+            var columnCount = 0;
+            using (var sr = File.OpenText(path))
             {
                 string line;
-                int i = 0;
+                var i = 0;
                 while ((line = sr.ReadLine()) != null)
                 {
                     var a = line.Split(' ');
-                    N = a.Length;
+                    columnCount = a.Length;
                     i++;
                 }
 
-                M = i;
+                rowCount = i;
             }
 
-            using (StreamReader sr = File.OpenText(path))
+            using (var sr = File.OpenText(path))
             {
-                array = new T[M][];
+                array = new T[rowCount][];
                 string line;
-                int i = 0;
+                var i = 0;
                 while ((line = sr.ReadLine()) != null)
                 {
                     var a = line.Split(' ');
-                    array[i] = new T[N];
-                    for (int j = 0; j < a.Length; j++)
+                    array[i] = new T[columnCount];
+                    for (var j = 0; j < a.Length; j++)
                     {
-                        T t = new T();
+                        var t = new T();
                         t.FromWord(a[j]);
                         array[i][j] = t;
                     }
+
                     i++;
                 }
             }
 
             return array;
         }
-
     }
 }

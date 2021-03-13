@@ -1,9 +1,8 @@
-﻿﻿using System;
-namespace Matrix
+﻿namespace Matrix.Interfaces
 {
     public interface ISerializable
     {
-        public void FromWord(String word);
+        public void FromWord(string word);
 
         public string ToWord();
     }

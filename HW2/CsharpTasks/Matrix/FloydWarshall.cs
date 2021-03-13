@@ -1,28 +1,34 @@
-﻿﻿using System;
+﻿using System;
+using Matrix.Interfaces;
+
 namespace Matrix
 {
     public class FloydWarshall<T>
     {
         public static Matrix<T> Execute(Matrix<T> mtrx, ISemigroupPO<T> semigroup)
         {
-            Matrix<T> matrix = new Matrix<T>(mtrx.Copy());
-            if (matrix.n != matrix.m)
+            var matrix = new Matrix<T>(mtrx.Copy());
+            if (matrix.Rows != matrix.Columns)
                 throw new ArgumentException("Matrix should be square.");
-            T[][] resArray = new T[matrix.n][];
-            for (int i = 0; i < matrix.n; ++i)
+ 
+            var resArray = new T[matrix.Rows][];
+            for (var i = 0; i < matrix.Rows; ++i)
             {
-                resArray[i] = new T[matrix.n];
-                for (int j = 0; j < matrix.n; ++j)
+                resArray[i] = new T[matrix.Rows];
+                for (var j = 0; j < matrix.Rows; ++j)
                 {
-                    resArray[i][j] = matrix.array[i][j];
-                    for (int k = 0; k < matrix.n; ++k)
+                    resArray[i][j] = matrix.Array[i][j];
+                    for (var k = 0; k < matrix.Rows; ++k)
                     {
-                        T alternative = semigroup.Multiply(matrix.array[i][k], matrix.array[k][j]);
-                        resArray[i][j] = semigroup.LessOrEqual(alternative, resArray[i][j]) ? alternative : resArray[i][j];
-                        matrix.array[i][j] = resArray[i][j];
+                        var alternative = semigroup.Multiply(matrix.Array[i][k], matrix.Array[k][j]);
+                        resArray[i][j] = semigroup.LessOrEqual(alternative, resArray[i][j])
+                            ? alternative
+                            : resArray[i][j];
+                        matrix.Array[i][j] = resArray[i][j];
                     }
                 }
             }
+
             return new Matrix<T>(resArray);
         }
     }

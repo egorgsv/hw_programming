@@ -1,5 +1,4 @@
-﻿﻿using System;
-namespace Matrix
+﻿namespace Matrix.Interfaces
 {
     public interface ISemiring<T>
     {

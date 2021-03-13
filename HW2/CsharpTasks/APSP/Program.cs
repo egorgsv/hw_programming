@@ -1,24 +1,22 @@
 ﻿using System;
-using System.Diagnostics;
-using System.IO;
-using System.Text;
 using Matrix;
+using Matrix.AlgebraicStructures;
 
 namespace APSP
 {
-    public class Program
+    public static class Program
     {
         static void Main(string[] args)
         {
-            String path = args[0],
+            string path = args[0],
                 output = args[1];
-            Natural[][] array = MatrixIO<Natural>.Reader(path);
+            var array = MatrixIO<Natural>.Reader(path);
 
             try
             {
-                Matrix<Natural> matrix = new Matrix<Natural>(array);
-                Matrix<Natural> APSPMatrix = FloydWarshall<Natural>.Execute(matrix, new NaturalSemigroup());
-                MatrixIO<Natural>.WriteMatrix(APSPMatrix.array, output);
+                var matrix = new Matrix<Natural>(array);
+                var apspMatrix = FloydWarshall<Natural>.Execute(matrix, new NaturalSemigroup());
+                MatrixIO<Natural>.WriteMatrix(apspMatrix.Array, output);
             }
             catch (ArgumentException exception)
             {

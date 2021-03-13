@@ -1,50 +1,50 @@
-﻿using System;
+﻿using Matrix.Interfaces;
 
-namespace Matrix
+namespace Matrix.AlgebraicStructures
 {
     public class Natural : ISerializable
     {
-        public uint value { get; private set; }
+        public uint Value { get; private set; }
 
         public void FromWord(string str)
         {
-            value = UInt32.Parse(str);
+            Value = uint.Parse(str);
         }
 
         public string ToWord()
         {
-            return value.ToString();
+            return Value.ToString();
         }
 
         public Natural()
         {
-            value = 0;
+            Value = 0;
         }
 
         public Natural(uint i)
         {
-            value = i;
+            Value = i;
         }
     }
-    
+
     public class NaturalSemigroup : ISemigroupPO<Natural>
     {
         public Natural Multiply(Natural t1, Natural t2)
         {
-            return new Natural(t1.value + t2.value);
+            return new Natural(t1.Value + t2.Value);
         }
 
         public bool LessOrEqual(Natural t1, Natural t2)
         {
-            return t1.value <= t2.value;
+            return t1.Value <= t2.Value;
         }
     }
-    
+
     public class NaturalSemiring : ISemiring<Natural>
     {
         public Natural Add(Natural t1, Natural t2)
         {
-            return new Natural(t1.value + t2.value);
+            return new Natural(t1.Value + t2.Value);
         }
 
         public Natural GetIdentityElement()
@@ -54,7 +54,7 @@ namespace Matrix
 
         public Natural Multiply(Natural t1, Natural t2)
         {
-            return new Natural(t1.value*t2.value);
+            return new Natural(t1.Value * t2.Value);
         }
     }
 }

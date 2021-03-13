@@ -1,83 +1,92 @@
-using System;
 using Matrix;
+using Matrix.AlgebraicStructures;
 using NUnit.Framework;
-using Boolean = Matrix.Boolean;
+using Boolean = Matrix.AlgebraicStructures.Boolean;
 
-namespace FloydWarshallTest
+namespace Tests
 {
     [TestFixture]
     public class FloydWarshallTest
     {
-        private Matrix<Natural> toNaturalMatrix(int[][] intTable) {
-            Natural[][] result = new Natural[intTable.Length][];
-            int i, j;
-            for (i = 0; i < intTable.Length; ++i) {
+        private static Matrix<Natural> ToNaturalMatrix(int[][] intTable)
+        {
+            var result = new Natural[intTable.Length][];
+            for (var i = 0; i < intTable.Length; ++i)
+            {
                 result[i] = new Natural[intTable[i].Length];
-                for (j = 0; j < intTable[i].Length; ++j)
-                    result[i][j] = new Natural((uint)intTable[i][j]);
+                for (var j = 0; j < intTable[i].Length; ++j)
+                    result[i][j] = new Natural((uint) intTable[i][j]);
             }
+
             return new Matrix<Natural>(result);
         }
-        
-        private Matrix<Boolean> toBoolMatrix(bool[][] boolTable) {
-            Boolean[][] result = new Boolean[boolTable.Length][];
-            for (int i = 0; i < boolTable.Length; ++i) {
+
+        private static Matrix<Boolean> ToBoolMatrix(bool[][] boolTable)
+        {
+            var result = new Boolean[boolTable.Length][];
+            for (var i = 0; i < boolTable.Length; ++i)
+            {
                 result[i] = new Boolean[boolTable[i].Length];
-                for (int j = 0; j < boolTable[i].Length; ++j)
+                for (var j = 0; j < boolTable[i].Length; ++j)
                     result[i][j] = new Boolean(boolTable[i][j]);
             }
+
             return new Matrix<Boolean>(result);
         }
-        
+
         [Test]
         public void AllPairsShortestPathTest()
         {
-            int[][] table1 = {
-                    new [] {0, 1, 4},
-                    new [] {6, 0, 1},
-                    new [] {1, 5, 0}
+            int[][] table1 =
+                {
+                    new[] {0, 1, 4},
+                    new[] {6, 0, 1},
+                    new[] {1, 5, 0}
                 },
-                table2 = {
-                    new [] {0, 1, 2},
-                    new [] {2, 0, 1},
-                    new [] {1, 2, 0}
+                table2 =
+                {
+                    new[] {0, 1, 2},
+                    new[] {2, 0, 1},
+                    new[] {1, 2, 0}
                 };
 
-            Matrix<Natural> origin = toNaturalMatrix(table1);
-            Matrix<Natural> expected = toNaturalMatrix(table2);
+            var origin = ToNaturalMatrix(table1);
+            var expected = ToNaturalMatrix(table2);
 
-            Matrix<Natural> result = FloydWarshall<Natural>.Execute(origin, new NaturalSemigroup());
+            var result = FloydWarshall<Natural>.Execute(origin, new NaturalSemigroup());
 
-            for (int i = 0; i < expected.m; ++i)
-                for (int j = 0; j < expected.m; ++j)
-                    Assert.AreEqual(expected.array[i][j].value, result.array[i][j].value);
+            for (var i = 0; i < expected.Columns; ++i)
+            for (var j = 0; j < expected.Columns; ++j)
+                Assert.AreEqual(expected.Array[i][j].Value, result.Array[i][j].Value);
         }
 
         [Test]
-        public void TransitiveClousureTest()
+        public void TransitiveClosureTest()
         {
-            bool[][] array0 = { 
-                new [] { true, true, false, false },
-                new [] { false, true, true, false },
-                new [] { true, false, true, false },
-                new [] { false, false, true, true } 
+            bool[][] array0 =
+            {
+                new[] {true, true, false, false},
+                new[] {false, true, true, false},
+                new[] {true, false, true, false},
+                new[] {false, false, true, true}
             };
 
-            bool[][] array1 = { 
-                new [] { true, true, true, false },
-                new [] { true, true, true, false },
-                new [] { true, true, true, false },
-                new [] { true, true, true, true }
+            bool[][] array1 =
+            {
+                new[] {true, true, true, false},
+                new[] {true, true, true, false},
+                new[] {true, true, true, false},
+                new[] {true, true, true, true}
             };
 
-            Matrix<Boolean> origin = toBoolMatrix(array0);
-            Matrix<Boolean> expected = toBoolMatrix(array1);
+            var origin = ToBoolMatrix(array0);
+            var expected = ToBoolMatrix(array1);
 
-            Matrix<Boolean> result = FloydWarshall<Boolean>.Execute(origin, new BooleanSemigroup());
+            var result = FloydWarshall<Boolean>.Execute(origin, new BooleanSemigroup());
 
-            for (int i = 0; i < expected.m; ++i)
-                for (int j = 0; j < expected.m; ++j)
-                    Assert.AreEqual(expected.array[i][j].value, result.array[i][j].value);
+            for (var i = 0; i < expected.Columns; ++i)
+            for (var j = 0; j < expected.Columns; ++j)
+                Assert.AreEqual(expected.Array[i][j].Value, result.Array[i][j].Value);
         }
     }
 }
