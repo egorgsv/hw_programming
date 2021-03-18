@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "MatrixGeneratorCLI", "MatrixGeneratorCLI\MatrixGeneratorCLI.fsproj", "{C61AD67E-7131-4AF9-AA5C-822CE68EC906}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Core", "..\..\FsharpTasks\Core\Core.fsproj", "{3A3D46AB-6CA3-4C76-B278-61A0BF345284}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C61AD67E-7131-4AF9-AA5C-822CE68EC906}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C61AD67E-7131-4AF9-AA5C-822CE68EC906}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C61AD67E-7131-4AF9-AA5C-822CE68EC906}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C61AD67E-7131-4AF9-AA5C-822CE68EC906}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A3D46AB-6CA3-4C76-B278-61A0BF345284}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A3D46AB-6CA3-4C76-B278-61A0BF345284}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A3D46AB-6CA3-4C76-B278-61A0BF345284}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A3D46AB-6CA3-4C76-B278-61A0BF345284}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
