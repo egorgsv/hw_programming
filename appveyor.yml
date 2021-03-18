@@ -4,15 +4,19 @@ environment:
     matrix:
         - solution_name: HW2/CsharpTasks/CsharpTasks.sln
         - solution_name: FsharpTasks/FsharpTasks.sln
+	- solution_name: HW3/MatrixGeneratorCLI/MatrixGeneratorCLI.sln
 
 before_build:
     - nuget restore HW2/CsharpTasks/CsharpTasks.sln
     - nuget restore FsharpTasks/FsharpTasks.sln
+    - nuget restore HW3/MatrixGeneratorCLI/MatrixGeneratorCLI.sln
 
 build_script:
     - msbuild HW2/CsharpTasks/CsharpTasks.sln
     - msbuild FsharpTasks/FsharpTasks.sln
+    - msbuild HW3/MatrixGeneratorCLI/MatrixGeneratorCLI.sln
 
 test_script:
     - dotnet test HW2/CsharpTasks/CsharpTasks.sln
     - dotnet test FsharpTasks/FsharpTasks.sln
+    #- dotnet test HW3/MatrixGeneratorCLI/MatrixGeneratorCLI.sln
