@@ -194,3 +194,16 @@ module MatrixFs =
                 |> Some
             else
                 None
+
+    /// Generates random square matrix of specified size
+    let createRandomSquareMatrix (size: int) (nextRandom: unit -> 'a) =
+        (fun _ _ -> nextRandom ())
+        |> Array2D.init size size
+        |> Matrix
+
+    /// Generates random square matrix
+    /// of specified dimensions [rows count x columns count]
+    let createRandomMatrix rows columns (nextRandom: unit -> 'a) =
+        (fun _ _ -> nextRandom ())
+        |> Array2D.init rows columns
+        |> Matrix
