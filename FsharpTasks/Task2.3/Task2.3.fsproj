@@ -7,6 +7,12 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Content Include="..\data\task_2.3_input.txt">
+          <Link>task_2.3_input.txt</Link>
+        </Content>
+        <Content Include="..\data\task_2.3_output.txt">
+          <Link>task_2.3_output.txt</Link>
+        </Content>
         <Compile Include="Program.fs" />
     </ItemGroup>
 

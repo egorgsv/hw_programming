@@ -7,13 +7,14 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Program.fs" />
         <Content Include="..\data\task_2.2_input.txt">
           <Link>task_2.2_input.txt</Link>
         </Content>
+        <Compile Include="Program.fs" />
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\HW2\CsharpTasks\TransitiveClosure\TransitiveClosure.csproj" />
       <ProjectReference Include="..\Core\Core.fsproj" />
     </ItemGroup>
 

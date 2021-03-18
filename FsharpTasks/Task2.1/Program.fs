@@ -1,15 +1,9 @@
 ﻿module MatrixProcessor
 
+open System
 open Core.Algebras
 open Core.Matrix
 open Core.MatrixIO
-open Core.Maybe
-
-//  -> Задание:
-//      2.1) Реализовать умножение матриц над произвольным полукольцом.
-//      Матрицы брать из текстового файла и записать в текстовый файл.
-
-let private maybe = MaybeBuilder()
 
 /// Separator is a string character
 /// that will be used to separate
@@ -17,34 +11,44 @@ let private maybe = MaybeBuilder()
 /// after the matrix is written/read to/from the file
 let private _sep = " " // use <space> as separator
 
-let private simpleFunctionalityTest =
+let private _dataFolderName = "data"
+
+let simpleMultiplication inFile outFile =
     let mat =
-        [| [| 1; 2; 3 |]
-           [| 1; 4; 9 |]
-           [| 1; 8; 27 |] |]
+        (getFullPathToFile _dataFolderName inFile)
+        |> readMatrixFromFile _sep (int)
         |> array2D
         |> Matrix
 
     let res =
         MatrixFs.multiplyInSemiring Integer.integerSemiring mat mat
 
-    let matStr =
-        mat
-        |> MatrixFs.toArray2D
-        |> matrixToString _sep
+    Console.msg "Matrix product of \n["
 
-    let resStr =
-        res
-        |> MatrixFs.toArray2D
-        |> matrixToString _sep
+    mat
+    |> MatrixFs.toArray2D
+    |> matrixToString _sep
+    |> Console.msg'
 
-    printfn "Matrix product of \n[\n%s]\n multiplied by itself is:\n[\n%s]\n" matStr resStr
+    Console.msg "]\n multiplied by itself is:\n["
 
     res
     |> MatrixFs.toArray2D
-    |> saveMatrixToFile _sep (getFullPathToFile "data" "task_2.1_output.txt")
+    |> matrixToString _sep
+    |> Console.msg'
 
+    Console.msg "]"
+
+    res
+    |> MatrixFs.toArray2D
+    |> saveMatrixToFile _sep (getFullPathToFile _dataFolderName outFile)
+
+//  -> Задание:
+//      2.1) Реализовать умножение матриц над произвольным полукольцом.
+//          Матрицы брать из текстового файла и записать в текстовый файл.
 [<EntryPoint>]
 let main _argv =
-    simpleFunctionalityTest
+    Console.info "Running Task 2.1 ..."
+    simpleMultiplication "task_2.1_input.txt" "task_2.1_output.txt"
+    Console.ok "\nAll done."
     0

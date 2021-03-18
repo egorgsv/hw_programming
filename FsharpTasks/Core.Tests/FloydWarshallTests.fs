@@ -30,7 +30,7 @@ let ``Floyd-Warshall simple test`` () =
     res |> should equal (Some expected)
 
 [<Test>]
-let ``Floyd-Warshall with wrong arguments`` () =
+let ``Floyd-Warshall with wrong arguments returns None`` () =
     let res =
         [| [| 1; 2; 3 |]; [| 4; 5; 6 |] |]
         |> array2D

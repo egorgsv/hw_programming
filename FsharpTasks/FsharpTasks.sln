@@ -10,6 +10,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Task2.3", "Task2.3\Task2.3.
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Core.Tests", "Core.Tests\Core.Tests.fsproj", "{EEF372FD-CD6F-49AA-AC96-66B08F089C6D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransitiveClosure", "..\HW2\CsharpTasks\TransitiveClosure\TransitiveClosure.csproj", "{D794DDC5-E8B9-48FD-B9B1-85D0C760EE0B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,5 +42,9 @@ Global
 		{A583DBB0-CEF3-4D71-8456-8E9DEFFAF6E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A583DBB0-CEF3-4D71-8456-8E9DEFFAF6E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A583DBB0-CEF3-4D71-8456-8E9DEFFAF6E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D794DDC5-E8B9-48FD-B9B1-85D0C760EE0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D794DDC5-E8B9-48FD-B9B1-85D0C760EE0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D794DDC5-E8B9-48FD-B9B1-85D0C760EE0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D794DDC5-E8B9-48FD-B9B1-85D0C760EE0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
