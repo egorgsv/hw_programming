@@ -8,17 +8,20 @@ namespace Tests
     [TestFixture]
     public class FloydWarshallTest
     {
-        private static Matrix<Natural> ToNaturalMatrix(int[][] intTable)
+        private static Matrix<ExtendedReal> ToExtendedRealMatrix(string[][] floatTable)
         {
-            var result = new Natural[intTable.Length][];
-            for (var i = 0; i < intTable.Length; ++i)
+            var result = new ExtendedReal[floatTable.Length][];
+            for (var i = 0; i < floatTable.Length; ++i)
             {
-                result[i] = new Natural[intTable[i].Length];
-                for (var j = 0; j < intTable[i].Length; ++j)
-                    result[i][j] = new Natural((uint) intTable[i][j]);
+                result[i] = new ExtendedReal[floatTable[i].Length];
+                for (var j = 0; j < floatTable[i].Length; ++j)
+                {
+                    result[i][j] = new ExtendedReal();
+                    result[i][j].FromWord(floatTable[i][j]);
+                }
             }
 
-            return new Matrix<Natural>(result);
+            return new Matrix<ExtendedReal>(result);
         }
 
         private static Matrix<Boolean> ToBoolMatrix(bool[][] boolTable)
@@ -37,27 +40,29 @@ namespace Tests
         [Test]
         public void AllPairsShortestPathTest()
         {
-            int[][] table1 =
+            string[][] table1 =
                 {
-                    new[] {0, 1, 4},
-                    new[] {6, 0, 1},
-                    new[] {1, 5, 0}
+                    new[] {"0.0", "inf", "-2.0", "inf"},
+                    new[] {"4.0", "0.0", "3.0", "inf"},
+                    new[] {"inf", "inf", "0.0", "2.0"},
+                    new[] {"inf", "-1.0", "inf", "0.0"}
                 },
                 table2 =
                 {
-                    new[] {0, 1, 2},
-                    new[] {2, 0, 1},
-                    new[] {1, 2, 0}
+                    new[] {"0.0", "-1.0", "-2.0", "0.0"},
+                    new[] {"4.0", "0.0", "2.0", "4.0"},
+                    new[] {"5.0", "1.0", "0.0", "2.0"},
+                    new[] {"3.0", "-1.0", "1.0", "0.0"}
                 };
 
-            var origin = ToNaturalMatrix(table1);
-            var expected = ToNaturalMatrix(table2);
+            var origin = ToExtendedRealMatrix(table1);
+            var expected = ToExtendedRealMatrix(table2);
 
-            var result = FloydWarshall<Natural>.Execute(origin, new NaturalSemigroup());
+            var result = FloydWarshall<ExtendedReal>.Execute(origin, new ExtendedRealSemigroup());
 
             for (var i = 0; i < expected.Columns; ++i)
-            for (var j = 0; j < expected.Columns; ++j)
-                Assert.AreEqual(expected.Array[i][j].Value, result.Array[i][j].Value);
+                for (var j = 0; j < expected.Columns; ++j)
+                    Assert.AreEqual(expected.Array[i][j].ToWord(), result.Array[i][j].ToWord());
         }
 
         [Test]
@@ -84,9 +89,9 @@ namespace Tests
 
             var result = FloydWarshall<Boolean>.Execute(origin, new BooleanSemigroup());
 
-            for (var i = 0; i < expected.Columns; ++i)
-            for (var j = 0; j < expected.Columns; ++j)
-                Assert.AreEqual(expected.Array[i][j].Value, result.Array[i][j].Value);
+            for (var i = 0; i < expected.Columns; i++)
+                for (var j = 0; j < expected.Columns; j++)
+                    Assert.AreEqual(expected.Array[i][j].Value, result.Array[i][j].Value);
         }
     }
 }

@@ -37,7 +37,7 @@ namespace Matrix.AlgebraicStructures
             return t1.Value || !t2.Value;
         }
 
-        public Boolean Multiply(Boolean t1, Boolean t2)
+        public Boolean Add(Boolean t1, Boolean t2)
         {
             return new Boolean(t1.Value && t2.Value);
         }

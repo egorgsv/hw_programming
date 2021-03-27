@@ -29,7 +29,7 @@ namespace Matrix.AlgebraicStructures
 
     public class NaturalSemigroup : ISemigroupPO<Natural>
     {
-        public Natural Multiply(Natural t1, Natural t2)
+        public Natural Add(Natural t1, Natural t2)
         {
             return new Natural(t1.Value + t2.Value);
         }

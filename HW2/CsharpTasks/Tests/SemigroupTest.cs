@@ -20,8 +20,8 @@ namespace Tests
         [Test]
         public void TestMultiplication()
         {
-            Assert.AreEqual(sg.Multiply(this.t, this.f).Value, false);
-            Assert.AreEqual(sg.Multiply(this.t, this.t).Value, true);
+            Assert.AreEqual(sg.Add(this.t, this.f).Value, false);
+            Assert.AreEqual(sg.Add(this.t, this.t).Value, true);
         }
 
         [Test]
