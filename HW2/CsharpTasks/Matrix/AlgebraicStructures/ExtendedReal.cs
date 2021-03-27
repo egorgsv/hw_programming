@@ -105,7 +105,7 @@ namespace Matrix.AlgebraicStructures
 
         public ExtendedReal GetIdentityElement()
         {
-            return new ExtendedReal(0.0f);
+            return new ExtendedReal(0);
         }
 
         public ExtendedReal Multiply(ExtendedReal t1, ExtendedReal t2)
