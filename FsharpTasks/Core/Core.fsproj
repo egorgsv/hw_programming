@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="AlgebraicStructures.fs" />
+        <Compile Include="Algebras.fs" />
+        <Compile Include="Random.fs" />
+        <Compile Include="Matrix.fs" />
+        <Compile Include="MatrixIO.fs" />
+    </ItemGroup>
+
+</Project>
