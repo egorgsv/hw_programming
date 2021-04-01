@@ -10,7 +10,6 @@
         <Compile Include="Random.fs" />
         <Compile Include="Matrix.fs" />
         <Compile Include="MatrixIO.fs" />
-        <Compile Include="Maybe.fs" />
     </ItemGroup>
 
 </Project>
